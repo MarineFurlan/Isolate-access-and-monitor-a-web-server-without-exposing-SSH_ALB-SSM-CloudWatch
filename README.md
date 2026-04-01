@@ -49,7 +49,8 @@ One alarm on 4XX errors demonstrates monitoring and notification while keeping c
 
 ## 3. Architecture Overview
 <a name="#3-architecture-overview"></a>      
-<img width="2028" height="1049" alt="WebApp_EmailAlarm_SSMConnect drawio(1)" src="https://github.com/user-attachments/assets/7dbff49e-2482-492d-9902-2619b60d88c5" />   
+<img width="2028" height="1049" alt="WebApp_EmailAlarm_SSMConnect drawio(1)" src="https://github.com/user-attachments/assets/56eee3fd-0507-4d5d-a1a9-01e6f0486de2" />
+
       
 ### Main Components: 
    
