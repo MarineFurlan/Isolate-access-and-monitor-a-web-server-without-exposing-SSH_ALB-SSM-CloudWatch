@@ -125,11 +125,10 @@ target_group_arn = "arn:aws:elasticloadbalancing:eu-west-3:XXXXXXXXX:targetgroup
 
 <br/>
 
-<details>
-<summary>Step 3 - Confirm the subscription to security alerts in your email inbox.
-</summary>
 
-</details>
+Step 3 - Confirm the subscription to security alerts in your email inbox.
+
+
 
 <br/>
 
@@ -250,6 +249,7 @@ After 4–5 minutes, the email alert is received:
 
 ## 6. Infrastructure cleaning
 <a name="#6-infra-cleaning"></a>
+
 ```terraform
 terraform plan -destroy
 terraform destroy -auto-approve
@@ -260,8 +260,15 @@ terraform destroy -auto-approve
 ## 7. Pricing
 
 <a name="#7-pricing"></a>
+
+<details>
+<summary>Monthly estimation</summary>
+
+<br/>  
+  
 &emsp;&emsp;The infrastructure was designed with a cost-efficiency approach, balancing AWS best practices with budget
 optimization.  
+  
 The estimate below is based on the [AWS Pricing Calculator](https://calculator.aws).
 
 | Service                       | Selected Option                                               | Estimated Monthly* | Justification                                                                                          |
@@ -271,14 +278,18 @@ The estimate below is based on the [AWS Pricing Calculator](https://calculator.a
 | **VPC Endpoint (S3)**         | 1 Gateway Endpoint                                            | 0 USD              | Free to use, unlike a NAT Gateway.                                                                     |
 | **VPC Endpoint (SSM)**        | 3 Interface Endpoints (ssm, ec2messages, ssmmessages) x 2 AZs | 48.18 USD          | More secure and ~24.82 USD/month cheaper than a NAT Gateway.                                           |
 | **CloudWatch**                | 1 alarm + basic metrics                                       | 0 USD              | Free within Free Tier (10 metrics + 10 alarms/month + 5GB logs). Current setup stays within Free Tier. |
+| **SNS**                       | < 1000 emails                                                 | 0 USD              | Current setup stays within Free Tier.                                                                  |
 | **SSM Session Manager**       | Included in Free Tier                                         | 0 USD              | No additional cost for basic access without CloudWatch logging.                                        |
 | **TOTAL**                     |                                                               | **67.8 USD**       |
 
-\* Costs estimated for region "eu-west-3". Includes fixed service costs only, not traffic-related costs.
+\* Costs estimated for region "eu-west-3". Includes fixed service costs only, not traffic-related costs. Calculated in 2025.
+</details>
+   
+
+<details>
+<summary>Key Budget Decisions</summary>
 
 <br/>  
-
-### <ins>Key Budget Decisions</ins>
 
 | Service       | Alternative Option | Estimated Monthly* |
 |---------------|--------------------|--------------------|
@@ -297,6 +308,7 @@ The estimate below is based on the [AWS Pricing Calculator](https://calculator.a
       <br/>
       <br/>
       <br/>
+</details>
 
 ## 8. Improvements & Next Steps
 
