@@ -185,68 +185,6 @@ Infrastructure overview :
 
 <img width="1569" height="450" alt="Infra_overview" src="https://github.com/user-attachments/assets/fbd32ce5-41f2-4109-a3c8-515801935cfa" />
 
-<!--
-- Screenshots below show how to identify which instance has which IP:
-  <img width="776" height="82" alt="First_instance_ip" src="https://github.com/user-attachments/assets/5316ee90-05e6-409e-b3bf-d8b3353c7116" />
-  <img width="776" height="82" alt="Second_instance_ip" src="https://github.com/user-attachments/assets/0438c297-6f23-4363-be60-181b15186cf0" />
-
-- In the AWS console, the target group will show healthy instances across different AZs:
-  <img width="832" height="791" alt="target_group" src="https://github.com/user-attachments/assets/4418ea7a-f2bb-4194-a283-3faef77cdd63" />
-
-<br/>
-
-<br/>  
-
-<br/>
-
-### _Maintenance Connection via SSM_
-
-- Check that SSM Connect access is available.
-  <img width="1776" height="498" alt="ssm_connect" src="https://github.com/user-attachments/assets/9100b977-c117-46f3-a782-3a042fd2b21f" />
-
-<br/>
-
-<br/>  
-
-<br/>
-
-### _Resiliency in case of failure_
-
-- Stop one instance to simulate an AZ issue. The target group will immediately mark it as unhealthy, and traffic will
-  shift to the remaining instance.
-  <img width="776" height="82" alt="Stopped_instance" src="https://github.com/user-attachments/assets/6ddd16cb-dac6-415f-9133-3e40adca58ed" />
-
-
-- After some time, the unhealthy instance is drained and replaced by a new one.
-  <img width="776" height="82" alt="Draining_instance" src="https://github.com/user-attachments/assets/4d3f13a2-279f-4571-84b7-c09ac1662cf3" />
-  <img width="776" height="82" alt="New_instance_booted" src="https://github.com/user-attachments/assets/9bf8858f-2737-42ae-8ac5-684167405cf2" />
-
-
-- Traffic can now be routed to the new instance.
-  <img width="776" height="82" alt="new_instance_ip" src="https://github.com/user-attachments/assets/c9bba3d2-5dd7-48fc-9e42-2597cae48f04" />
-  <img width="776" height="82" alt="Third_instance_in_server" src="https://github.com/user-attachments/assets/b5d1790e-8665-441a-b0ef-428eb9b632af" />
-
-<br/>
-
-<br/>  
-
-### _Triggering the Alarm on 4XX Errors_
-
-- In Amazon SNS > Topics > vpc_alerts_webApp: verify the email subscription to receive alerts.
-
-<img width="776" height="82" alt="Email_confirmed" src="https://github.com/user-attachments/assets/e4dafef2-5bf2-423c-a8e9-51cef8ceb3cf" />
-
-- Simulate 4xx errors with, for instance, this PowerShell snippet:
-
-```PowerShell
-1..12 | ForEach-Object { try { Invoke-WebRequest "http://{alb_dns}/chemin-invalide$($_)?r=$(Get-Random)" -Method GET -ErrorAction Stop -TimeoutSec 5 | Out-Null; "200" } catch { if ($_.Exception.Response) { $_.Exception.Response.StatusCode.value__ } else { "ERR" } } }
-```
-
-After 4–5 minutes, the email alert is received:
-
-![email_alarm](https://github.com/user-attachments/assets/95abb978-4a51-48a7-aa14-5ed9e17a5ad8)
--->
-
 <br/>
 <br/>
 <br/>
