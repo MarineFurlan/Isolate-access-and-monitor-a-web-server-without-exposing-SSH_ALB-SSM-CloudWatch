@@ -91,7 +91,7 @@ used to monitor incoming traffic and trigger alerts on abnormal traffic such as 
 <summary>Step 1 - Clone this repo</summary> 
 
 ```terraform
-git clone https://github.com/MarineFurlan/Isolate-access-and-monitor-a-web-server-without-exposing-SSH_ALB-SSM-CloudWatch.git
+git clone https://github.com/MarineFurlan/Isolate-access-and-monitor-a-web-server-without-exposing-SSH_ALB_SSM_CloudWatch.git
 cd Isolate-access-and-monitor-a-web-server-without-exposing-SSH_ALB-SSM-CloudWatch
 ```
 </details>
