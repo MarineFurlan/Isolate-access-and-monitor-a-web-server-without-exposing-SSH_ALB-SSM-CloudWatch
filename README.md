@@ -90,6 +90,8 @@ used to monitor incoming traffic and trigger alerts on abnormal traffic such as 
 <details>
 <summary>Step 1 - Clone this repo</summary> 
 
+<br/>
+
 ```terraform
 git clone https://github.com/MarineFurlan/Isolate-access-and-monitor-a-web-server-without-exposing-SSH_ALB_SSM_CloudWatch.git
 cd Isolate-access-and-monitor-a-web-server-without-exposing-SSH_ALB-SSM-CloudWatch
@@ -99,13 +101,32 @@ cd Isolate-access-and-monitor-a-web-server-without-exposing-SSH_ALB-SSM-CloudWat
 <br/>
 
 <details>
-<summary>Step 2 - Initialize the infrastructure</summary>  
+<summary>Step 2 - Review and complete variables.tf file</summary>  
+
+<br/>
+
+Change the default value of the email_address variable, it must be the email address that will receive alerts.
+```terraform
+variable "email_address" {
+  type = string
+  default = "[your_email]"
+}
+```  
+</details>
+
+<br/>
+
+<details>
+<summary>Step 3 - Initialize the infrastructure</summary>  
+
+<br/>
   
 ```terraform
 terraform init
 terraform plan
 terraform apply
-```  
+```
+
 ```terraform
 # Expected result in CLI
 
@@ -126,14 +147,14 @@ target_group_arn = "arn:aws:elasticloadbalancing:eu-west-3:XXXXXXXXX:targetgroup
 <br/>
 
 
-Step 3 - Confirm the subscription to security alerts in your email inbox.
+Step 4 - Confirm the subscription to security alerts in your email inbox.
 
 
 
 <br/>
 
 <details>
-<summary>Step 4 - Deployment validation</summary>
+<summary>Step 5 - Deployment validation</summary>
 
 <br/>
 
